@@ -1,0 +1,23 @@
+
+.container{
+    height: 100px;
+ }
+ 
+ .primary-bg{
+     background-color:#00AB9F;
+ }
+ 
+ .secondary-bg{
+     background-color: #FF8C00;
+ }
+ 
+ 
+ .text-blue{
+     color: #00AB9F;
+ }
+ 
+ .text-yellow{
+     color: #FF8C00;
+ }
+ 
+ 
