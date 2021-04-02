@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0b4e5c4a079a99be174594c9ba5eceb0",
+    "content-hash": "5eba6e1df2de4a3f9d5a5b185d4c9043",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2352,6 +2352,37 @@
                 }
             ],
             "time": "2020-08-18T17:17:46+00:00"
+        },
+        {
+            "name": "sevengps/payunit",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://gitlab.com/sevencommonfactor/payunit-php-sdk.git",
+                "reference": "87ed8f7f73ca6882bd79304de1ba5873e4282b60"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/sevencommonfactor%2Fpayunit-php-sdk/repository/archive.zip?sha=87ed8f7f73ca6882bd79304de1ba5873e4282b60",
+                "reference": "87ed8f7f73ca6882bd79304de1ba5873e4282b60",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SevenPay\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Payunit",
+                    "email": "info@payunit.net"
+                }
+            ],
+            "description": "Payunit PHP SDK",
+            "time": "2021-02-25T13:32:59+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -7426,7 +7457,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "sevengps/payunit": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

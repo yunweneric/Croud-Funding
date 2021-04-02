@@ -42,7 +42,7 @@
                             
                             
 
-                            <form class="mt-2 space-y-6" action="{{ route('paynow')}}"
+                            <form class="mt-2 space-y-6" action="{{ route('paynow', $posts->id)}}"
                                 method="POST">
                                 @csrf
 
@@ -56,7 +56,7 @@
                                 </div>
                                 <div>
                                     <button type="submit"
-                                        class="group relative w-12/12 flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white primary-bg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                        class="group relative w-12/12 flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white primary-bg hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                                         Pay Now
                                     </button>
                                 </div>

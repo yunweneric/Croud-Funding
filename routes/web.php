@@ -24,6 +24,10 @@ Route::get('/', function () {
 
 
 
+Route::get('/thanks', [CampeignController::class, 'thanks'])->middleware(['auth'])->name('thanks');;
+
+
+
 Route::get('/dashboard', [CampeignController::class, 'dash'])->middleware(['auth'])->name('dashboard');;
 Route::get('/campeign', [CampeignController::class, 'index'])->name('campeign');
 Route::get('/addcampeign', [CampeignController::class, 'addcampeign'])->name('addcampeign');
@@ -32,7 +36,8 @@ Route::post('/campeign', [CampeignController::class, 'store']);
 
 
 Route::post('/viewcampeign/{id}/', [CampeignController::class, 'viewcampeign'])->name('viewcampeign');
-Route::post('/paynow', [CampeignController::class, 'pay'])->name('paynow');
+Route::post('/paynow', [CampeignController::class, 'storedonation'])->name('paynow');
+Route::post('/paynow/{id}/', [CampeignController::class, 'pay'])->name('paynow');
 
 
 

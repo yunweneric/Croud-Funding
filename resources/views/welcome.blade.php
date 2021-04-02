@@ -404,7 +404,7 @@
 </head>
 
 <body class="antialiased">
-    <div class="container">
+    <div class="">
         <div
             class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
             @if (Route::has('login'))
@@ -427,14 +427,26 @@
 
                 <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
                     <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-                        <h1>I-DONATIONS</h1>
+                        <h1 class="text-gray-700 font-bold text-3xl mb-4">I-DONATIONS</h1>
 
                     </div>
 
                     <div class="container">
-                        <p>Welcome to I-donate and I-Campeign, The best online campeign, donation ans support platfrom ever.
+                        <p class="text-gray-700 text-sm">Welcome to I-donate and I-Campeign, The best online campeign, donation ans support platfrom ever.
                             <br>Signup today and taste the difference!
                         </p>
+                    </div>
+                    <div class="flex">
+                        <a href=""
+                            class="group relative w-3/12 flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white primary-bg hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                            type="submit">
+                            Donate Now!
+                        </a>
+                        <a href=""
+                            class="group  ml-6 relative w-3/12 flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white primary-bg hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                            type="submit">
+                           View campeigns
+                        </a>
                     </div>
 
                 </div>
