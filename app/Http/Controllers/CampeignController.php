@@ -15,8 +15,9 @@ class CampeignController extends Controller
         return view('campeigns.campeign', ['posts'=>$posts]);
     }
     public function dash(){
+        // dd('hi');
         $posts = Campeign::paginate(5);
-        return view('campeigns.campeign', ['posts'=>$posts]);
+        return view('dashboard', ['posts'=>$posts]);
     }
 
     public function addcampeign(){
