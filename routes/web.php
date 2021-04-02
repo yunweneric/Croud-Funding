@@ -18,12 +18,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth'])->name('dashboard');
 
 
 
+Route::get('/campeign', [CampeignController::class, 'index'])->middleware(['auth'])->name('dashboard');;
 Route::get('/campeign', [CampeignController::class, 'index'])->name('campeign');
 Route::get('/addcampeign', [CampeignController::class, 'addcampeign'])->name('addcampeign');
 Route::post('/campeign', [CampeignController::class, 'store']);
