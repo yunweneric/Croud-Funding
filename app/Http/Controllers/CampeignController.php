@@ -41,14 +41,14 @@ class CampeignController extends Controller
         return view('campeigns.viewcampeign', ['posts'=>$user]);
     }
    
-    public function pay(Request $request){
-        // $donation = Campeign::find($id);
-        // Donation::create([
-        //     'amount' => $request->amount,
-        //     'body' => $donation->body,
-        //     'donatorname' => $donation->donatorname,
-        //     'cname' =>$donation->cname,
-        // ]);
+    public function pay($id, Request $request){
+        $donation = Campeign::find($id);
+        Donation::create([
+            'amount' => $request->amount,
+            'body' => $donation->body,
+            'donatorname' => $donation->donatorname,
+            'cname' =>$donation->cname,
+        ]);
        $myPayment = new PayUnit(
         "f41b310f22617387d0c01f9f461b91dbf5bb54bd",
         "47c6ba11-3d5c-46af-ba29-79199c35fca0",
