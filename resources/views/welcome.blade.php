@@ -411,9 +411,15 @@
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
                         <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 no-underline ml-2">Dashboard</a>
-                        <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 no-underline ml-2">Campeigns</a>
-                        <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 no-underline ml-2">Donations</a>
-                        <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 n0-underline ml-2">Logout</a>
+                        <a href="{{ url('/campeign') }}" class="text-sm text-gray-700 no-underline ml-2">Campeigns</a>
+                        <form action="{{ url('/logout') }}" method="post" class="inline">
+                            @csrf
+                            <button type="submit" class="text-sm text-gray-700 n0-underline ml-2">
+                                Logout
+
+                            </button>
+                        </form>
+
                     @else
                         <a href="{{ route('login') }}" class="text-sm text-gray-700 no-underline ml-2">Log in</a>
 
@@ -432,20 +438,21 @@
                     </div>
 
                     <div class="container">
-                        <p class="text-gray-700 text-sm">Welcome to I-donate and I-Campeign, The best online campeign, donation ans support platfrom ever.
+                        <p class="text-gray-700 text-sm">Welcome to I-donate and I-Campeign, The best online campeign,
+                            donation ans support platfrom ever.
                             <br>Signup today and taste the difference!
                         </p>
                     </div>
                     <div class="flex">
-                        <a href=""
+                        <a href="{{ route('campeign') }}"
                             class="group relative w-3/12 flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white primary-bg hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                             type="submit">
                             Donate Now!
                         </a>
-                        <a href=""
+                        <a href="{{ route('addcampeign') }}"
                             class="group  ml-6 relative w-3/12 flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white primary-bg hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                             type="submit">
-                           View campeigns
+                            Create campeign
                         </a>
                     </div>
 
@@ -458,7 +465,8 @@
                     </div>
 
                     <div class="container">
-                        <p class="text-gray-700 text-sm">Welcome to I-donate and I-Campeign, The best online campeign, donation ans
+                        <p class="text-gray-700 text-sm">Welcome to I-donate and I-Campeign, The best online campeign,
+                            donation ans
                             support platfrom ever.
                             <br>Signup today and taste the difference!
                         </p>
@@ -472,7 +480,7 @@
                         <a href=""
                             class="group  ml-6 relative w-3/12 flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white primary-bg hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                             type="submit">
-                           Our blog
+                            Our blog
                         </a>
                     </div>
 

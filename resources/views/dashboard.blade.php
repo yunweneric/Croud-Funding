@@ -174,7 +174,7 @@
                                             <span>New Campeign</span>
                                             <span
                                                 class="inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-600 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-600">
-                                                13
+                                                {{ count($posts) }}
                                             </span>
                                         </a>
                                     </li>
@@ -210,17 +210,22 @@
                                         </a>
                                     </li>
                                     <li class="flex">
-                                        <a class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                                            href="#">
-                                            <svg class="w-4 h-4 mr-3" aria-hidden="true" fill="none" stroke-linecap="round"
-                                                stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
-                                                stroke="currentColor">
-                                                <path
-                                                    d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1">
-                                                </path>
-                                            </svg>
-                                            <span>Log out</span>
-                                        </a>
+                                        <form action="/logout" method="post">
+                                            @csrf
+                                            <button type="submit"
+                                                class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200">
+
+                                                <svg class="w-4 h-4 mr-3" aria-hidden="true" fill="none"
+                                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path
+                                                        d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1">
+                                                    </path>
+                                                </svg>
+                                                <span>Log out</span>
+
+                                            </button>
+                                        </form>
                                     </li>
                                 </ul>
                             </template>
@@ -240,7 +245,7 @@
                         </div>
                     </a>
                     <!-- Cards -->
-                    <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-3">
+                    <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-2">
                         <!-- Card -->
                         <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
                             <div
@@ -261,7 +266,7 @@
                             </div>
                         </div>
                         <!-- Card -->
-                        <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+                        {{-- <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
                             <div
                                 class="p-3 mr-4 text-green-500 bg-green-100 rounded-full dark:text-green-100 dark:bg-orange-500">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -279,15 +284,11 @@
                                     Total Amounts
                                 </p>
                                 <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                    {{-- {{ $posts }} --}}
-
-                                    @foreach ($posts as $post)
-                                    <p>{{ array_sum(array($post->amount)) }}</p>
-                                    @endforeach
+                                   0
 
                                 </p>
-                            </div>
-                        </div>
+                            </div> 
+                        </div> --}}
                         <!-- Card -->
                         <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
                             <div
@@ -320,123 +321,124 @@
                     </h2>
 
 
-                   <div class="mb-8">
+                    <div class="mb-8">
                         <!-- New Table -->
-                    <h2 class="my-6 text-2x font-semibold text-gray-700 dark:text-gray-200">
-                        Your Campeigns
-                    </h2>
-                    @if ($posts->count())
-                        <div>
-                            <!-- This example requires Tailwind CSS v2.0+ -->
-                            <div class="flex flex-col">
-                                <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                                    <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                                        <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                                            <table class="min-w-full divide-y divide-gray-200">
-                                                <thead class="bg-gray-50">
-                                                    <tr>
-                                                        <th scope="col"
-                                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                            ID
-                                                        </th>
-                                                        <th scope="col"
-                                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                            Donator
-                                                        </th>
-                                                        <th scope="col"
-                                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                            Campeign Name
-                                                        </th>
-                                                        <th scope="col"
-                                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                            Amount
-                                                        </th>
-                                                        <th scope="col"
-                                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                            Created
-                                                        </th>
-                                                        <th scope="col"
-                                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                            Actions
-                                                        </th>
-
-                                                    </tr>
-                                                </thead>
-                                                <tbody class="bg-white divide-y divide-gray-200">
-                                                    @foreach ($posts as $post)
-
+                        <h2 class="my-6 text-2x font-semibold text-gray-700 dark:text-gray-200">
+                            Your Campeigns
+                        </h2>
+                        @if ($posts->count())
+                            <div>
+                                <!-- This example requires Tailwind CSS v2.0+ -->
+                                <div class="flex flex-col">
+                                    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                                            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                                                <table class="min-w-full divide-y divide-gray-200">
+                                                    <thead class="bg-gray-50">
                                                         <tr>
+                                                            <th scope="col"
+                                                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                                ID
+                                                            </th>
+                                                            <th scope="col"
+                                                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                                Donator
+                                                            </th>
+                                                            <th scope="col"
+                                                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                                Campeign Name
+                                                            </th>
+                                                            <th scope="col"
+                                                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                                Amount
+                                                            </th>
+                                                            <th scope="col"
+                                                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                                Created
+                                                            </th>
+                                                            <th scope="col"
+                                                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                                Actions
+                                                            </th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="bg-white divide-y divide-gray-200">
+                                                        @foreach ($posts as $post)
+
+                                                            <tr>
 
 
-                                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                                <span
-                                                                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                                    {{ $post->id }}
+                                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                                    <span
+                                                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                                                        {{ $post->id }}
 
-                                                                </span>
-                                                            </td>
-                                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                                <div class="flex items-center">
-
-                                                                    <div class="ml-4">
-
-                                                                        <div class="text-sm text-gray-500">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="flex items-center">
-                                                                    <div class="flex-shrink-0 h-10 w-10">
-                                                                        <img class="h-10 w-10 rounded-full"
-                                                                            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
-                                                                            alt="">
-                                                                    </div>
-                                                                    <div class="ml-4">
-                                                                        <div class="text-sm font-medium text-gray-900">
-
-                                                                        </div>
-                                                                        <div class="text-sm text-gray-500">
-                                                                            {{ $post->donatorname }}
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                                <span
-                                                                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                                    {{ $post->cname }}
-                                                                </span>
-                                                            </td>
-                                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                                <span
-                                                                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
-                                                                    {{ $post->amount }}
-                                                                </span>
-                                                            </td>
-                                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                                <span
-                                                                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                                    {{ $post->created_at->diffForHumans() }}
-                                                                </span>
-                                                            </td>
-                                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-
-                                                                <div class="flex justify-evenly">
-
-                                                                    <span>
-
-                                                                        <form
-                                                                            action="{{ route('viewcampeign', $post->id) }}"
-                                                                            method="post">
-                                                                            @csrf
-                                                                            <button
-                                                                                class="group relative w-10/12 flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white primary-bg hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                                                                                type="submit">
-                                                                                Donate
-                                                                                {{-- <i class="fa fa-eye" aria-hidden="true"></i> --}}
-                                                                            </button>
-                                                                        </form>
                                                                     </span>
-                                                                    {{-- <span>
+                                                                </td>
+                                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                                    <div class="flex items-center">
+
+                                                                        <div class="ml-4">
+
+                                                                            <div class="text-sm text-gray-500">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="flex items-center">
+                                                                        <div class="flex-shrink-0 h-10 w-10">
+                                                                            <img class="h-10 w-10 rounded-full"
+                                                                                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
+                                                                                alt="">
+                                                                        </div>
+                                                                        <div class="ml-4">
+                                                                            <div class="text-sm font-medium text-gray-900">
+
+                                                                            </div>
+                                                                            <div class="text-sm text-gray-500">
+                                                                                {{ $post->donatorname }}
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                                    <span
+                                                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                                                        {{ $post->cname }}
+                                                                    </span>
+                                                                </td>
+                                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                                    <span
+                                                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                                                        {{ $post->amount }}
+                                                                    </span>
+                                                                </td>
+                                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                                    <span
+                                                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                                                        {{ $post->created_at->diffForHumans() }}
+                                                                    </span>
+                                                                </td>
+                                                                <td
+                                                                    class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+
+                                                                    <div class="flex justify-evenly">
+
+                                                                        <span>
+
+                                                                            <form
+                                                                                action="{{ route('viewcampeign', $post->id) }}"
+                                                                                method="post">
+                                                                                @csrf
+                                                                                <button
+                                                                                    class="group relative w-10/12 flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white primary-bg hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                                                                                    type="submit">
+                                                                                    Donate
+                                                                                    {{-- <i class="fa fa-eye" aria-hidden="true"></i> --}}
+                                                                                </button>
+                                                                            </form>
+                                                                        </span>
+                                                                        {{-- <span>
 
                                                                 <form action="{{ route('paynow', $post->amount) }}"
                                                                     method="post">
@@ -449,30 +451,30 @@
                                                                 </form>
                                                             </span> --}}
 
-                                                                </div>
-                                                            </td>
+                                                                    </div>
+                                                                </td>
 
-                                                        </tr>
-                                                    @endforeach
+                                                            </tr>
+                                                        @endforeach
 
 
-                                                </tbody>
-                                            </table>
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        {{ $posts->links() }}
+                            {{ $posts->links() }}
 
-                    @else
-                        <p class="text-gray-500 text-sm">There are no Campeigns!</p>
+                        @else
+                            <p class="text-gray-500 text-sm">There are no Campeigns!</p>
 
-                    @endif
-                   </div>
+                        @endif
+                    </div>
 
-                     <!-- New Table -->
-                     <h2 class="my-6 text-2x font-semibold text-gray-700 dark:text-gray-200">
+                    <!-- New Table -->
+                    <h2 class="my-6 text-2x font-semibold text-gray-700 dark:text-gray-200">
                         Your Donations
                     </h2>
                     @if ($donations->count())
@@ -505,7 +507,7 @@
                                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                             Time Donated
                                                         </th>
-                                                       
+
 
                                                     </tr>
                                                 </thead>
@@ -565,7 +567,7 @@
                                                                     {{ $donation->created_at->diffForHumans() }}
                                                                 </span>
                                                             </td>
-                                                           
+
 
                                                         </tr>
                                                     @endforeach
